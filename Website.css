@@ -1,0 +1,61 @@
+/* style.css */
+body {
+    background-color: #36393f;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .upload-container,
+  #result-container {
+    background-color: #7289da;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .upload-container h2,
+  #result-container h2,
+  #watermark-container h3,
+  #preview-container h3 {
+    margin-top: 0;
+  }
+  
+  #preview-container {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  #preview-image {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  #watermark-container {
+    flex-grow: 1;
+  }
+  
+  #apply-watermark {
+    margin-top: 20px;
+  }
+  
+  #result-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  #download-link {
+    display: block;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="C:\Users\2000121640\OneDrive - Fulton County Schools\Website\favicon.ico-removebg-square.png">
+    <title>Image Watermark Generator</title>
+    <nav>
+        <ul>
+            <li><a href="file:///C:/Users/2000121640/OneDrive%20-%20Fulton%20County%20Schools/Website/home.html"><img src="favicon.ico-removebg-square.png" alt="Logo"></a></li>
+            <li><a href="file:///C:/Users/2000121640/OneDrive%20-%20Fulton%20County%20Schools/Website/home.html">Home</a></li>
+            <li><a href="file:///C:/Users/2000121640/OneDrive%20-%20Fulton%20County%20Schools/Website/WaterMark.html">Watermarks</a></li>
+            <li><a href="file:///C:/Users/2000121640/OneDrive%20-%20Fulton%20County%20Schools/Website/prevent.html">Prevent</a></li>
+            <li><a href="file:///C:/Users/2000121640/OneDrive%20-%20Fulton%20County%20Schools/Website/about.html">About</a></li>
+        </ul>
+      </nav>
+    <style>
+        
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #006400;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #666666;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #006400;
+            color: #ffffff;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .btn:hover {
+            background-color: #228B22;
+        }
+
+        .watermark-position {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .watermark-position label {
+            margin-bottom: 0;
+        }
+
+        .watermark-color {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .watermark-color label {
+            margin-right: 10px;
+        }
+
+        .watermarked-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            margin-top: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+
+        .watermarked-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .download-link {
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .download-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #006400;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .download-link a:hover {
+            background-color: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Watermark Generator</h1>
+        <form id="watermarkForm">
+            <label for="imageUpload">Upload Image:</label>
+            <input type="file" id="imageUpload" class="form-control" accept="image/*" required>
+            <label for="watermarkText">Watermark Text:</label>
+             <input type="text" id="watermarkText" class="form-control" required>
+            <div class="watermark-position">
+                <label for="watermarkPosition">Watermark Position:</label>
+                <select id="watermarkPosition" class="form-control">
+                    <option value="top-left">Top Left</option>
+                    <option value="top-right">Top Right</option>
+                    <option value="bottom-left">Bottom Left</option>
+                    <option value="bottom-right">Bottom Right</option>
+                    <option value="center">Center</option>
+                </select>
+            </div>
+            <label for="watermarkSize">Watermark Size:</label>
+            <input type="number" id="watermarkSize" class="form-control" min="10" max="100" step="1" value="100" required>
+            <div class="watermark-color">
+                <label for="watermarkColor">Watermark Color:</label>
+                <input type="color" id="watermarkColor" class="form-control" value="#000000" required>
+            </div>
+            <button type="submit" class="btn">Add Watermark</button>
+        </form>
+        <div class="watermarked-image">
+            <img id="watermarkedImg" src="" alt="Watermarked Image">
+        </div>
+        <div class="download-link" id="downloadLink">
+            <a href="#" download>Download Watermarked Image</a>
+        </div>
+    </div>
+</div>
+<h1>Example</h1>
+<div class="container" >
+    <p>Original Image:</p>
+    <div class="container" style="max-width: 300px; margin: 0 auto; padding: 20px; background-color: #398a42; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); border-radius: 12px;">
+    <img src="WaterMark Tesing.jpg">
+    </div>
+    <br><br>
+    <p>WaterMarked Image:</p>
+    <div class="container" style="max-width: 300px; margin: 0 auto; padding: 20px; background-color: #398a42; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); border-radius: 12px;">
+    <img src="download (2).png">
+</div>
+</div>
+<h1> Why would this Help?</h1>
+<div class="container">
+    <p>
+        Watermarks can help prevent deepfakes by providing a way to verify the authenticity of an image or video. A watermark is a digital marker that is embedded into an image or video at the time it is created or edited. The watermark typically contains information such as the date and time the image was created, the name of the photographer or videographer, and a unique identifier.
+        <br><br>
+        When a watermark is added to an image or video, it becomes much harder for someone to manipulate the content without leaving behind traces of tampering. This is because any attempt to remove or alter the watermark will result in visible artifacts that can be detected with digital forensic tools.
+        <br><br>
+        In the case of deepfakes, watermarks can be used to verify whether an image or video is genuine or not. If a deepfake video is created by manipulating an existing video, it will be challenging to remove or alter the watermark without leaving visible artifacts. This means that if the original video has a watermark, it can be used to verify the authenticity of the video, and identify any tampering.
+        <br><br>
+        Moreover, some watermarking techniques embed the watermark in a way that is difficult to remove or modify. For example, some techniques use steganography to hide the watermark within the image or video data, making it virtually impossible to remove the watermark without destroying the underlying content.
+        <br><br>
+        Overall, watermarks can be an effective tool in preventing deepfakes by providing a way to verify the authenticity of an image or video and detect any tampering. However, watermarks are not foolproof, and it is essential to develop other strategies to combat deepfakes, such as developing advanced digital forensics tools and educating the public about the risks of deepfakes.</p>
+        </div>
+    <script>
+        document.getElementById("watermarkForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get input values
+            var imageUpload = document.getElementById("imageUpload");
+            var watermarkText = document.getElementById("watermarkText").value;
+            var watermarkPosition = document.getElementById("watermarkPosition").value;
+            var watermarkSize = document.getElementById("watermarkSize").value;
+            var watermarkColor = document.getElementById("watermarkColor").value;
+
+            // Create canvas and draw image
+            var canvas = document.createElement("canvas");
+            var ctx = canvas.getContext("2d");
+            var img = new Image();
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+
+                ctx.fillStyle = watermarkColor;
+                ctx.font = watermarkSize + 'px Arial';
+                ctx.fillText(watermarkText, 0, 0);
+
+                // Add watermark
+                switch (watermarkPosition) {
+                    case 'top-left':
+                        ctx.fillText(watermarkText, 10, 70);
+                        break;
+                    case 'top-right':
+                        ctx.fillText(watermarkText, canvas.width - ctx.measureText(watermarkText).width - 10, 70);
+                        break;
+                    case 'bottom-left':
+                        ctx.fillText(watermarkText, 10, canvas.height - 10);
+                        break;
+                    case 'bottom-right':
+                        ctx.fillText(watermarkText, canvas.width - ctx.measureText(watermarkText).width - 10, canvas.height - 10);
+                        break;
+                    default:
+                        ctx.fillText(watermarkText, 10, 30);
+                        break;
+                    case 'center': 
+                    ctx.fillText(watermarkText, canvas.width / 2, canvas.height / 2);
+                
+                    break;
+                }
+                // Update watermarked image
+                var watermarkedImg = document.getElementById("watermarkedImg");
+                watermarkedImg.src = canvas.toDataURL();
+
+                // Show download link
+                var downloadLink = document.getElementById("downloadLink");
+                downloadLink.style.display = "block";
+                downloadLink.querySelector("a").href = canvas.toDataURL();
+            };
+            img.src = URL.createObjectURL(imageUpload.files[0]);
+        });
+    </script>
+</body>
+</html>
